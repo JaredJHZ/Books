@@ -1,0 +1,17 @@
+<div class="head" fxLayout="row" fxLayout.xs="column" >
+    <div [ngStyle]="{'font-size.px': 15, color: 'black'}" fxFlex>
+        <h1 style="text-align:center; margin: 0;">Books</h1>
+    </div>
+</div>
+
+<div  fxLayout="row">
+        <mat-sidenav-container  class="container">
+                <app-sidebar name="userName" email="email"></app-sidebar>
+                <div class="example-sidenav-content">
+                    <button style="margin: 1%;" type="button" mat-raised-button color='primary' (click)="openSidebar()">
+                                Menu
+                    </button>
+                    <router-outlet></router-outlet>
+                  </div>
+            </mat-sidenav-container>
+</div>

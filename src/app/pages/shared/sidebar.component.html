@@ -1,0 +1,20 @@
+<mat-drawer #sidebar class="example-sidenav" mode="side">
+  <button mat-raised-button color ="warn" (click)="sidenav.close()" style="margin-left: 15%">
+    Close
+  </button>
+  <img [src]="photo" class="img-round">
+  <h5>{{username}}</h5>
+  <h5>{{email}}</h5>
+  <ul class="menuUl">
+    <li class="menuLi pointer" *ngFor="let menu of Menu">
+      {{menu.title}}
+    </li>
+  </ul>
+
+  <button 
+  (click)="logout()"
+  class="registerB" mat-raised-button color ="accent">
+    Log out
+  </button>
+</mat-drawer>
+
