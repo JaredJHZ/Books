@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
+import {HttpModule} from '@angular/http';
 //material
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,11 +20,13 @@ import { RouterModule } from '../../node_modules/@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import { UsernamePipe } from './pipes/username.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    UsernamePipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     APPR,
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebase, 'Books'),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

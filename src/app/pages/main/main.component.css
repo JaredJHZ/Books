@@ -1,0 +1,10 @@
+.but{
+    display: block;
+    margin-top: 25px;
+}
+
+.profile-img{
+    width: 30%;
+    margin-left: 35%;
+    border-radius: 30px;
+}

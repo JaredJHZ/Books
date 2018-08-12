@@ -5,6 +5,7 @@ import { MaterialModule } from '../../material/material.module';
 import { SidebarComponent } from '../shared/sidebar.component';
 import { SidebarService } from '../../services/sidebar.service';
 import { RouterModule } from '../../../../node_modules/@angular/router';
+import { AddBookComponent } from '../books/add-book.component';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { RouterModule } from '../../../../node_modules/@angular/router';
     RouterModule
   ],
   exports:[HomeComponent, SidebarComponent,MaterialModule],
-  declarations: [HomeComponent, SidebarComponent],
+  declarations: [HomeComponent, SidebarComponent, AddBookComponent],
   providers:[SidebarService]
 })
 export class PagesModule { }

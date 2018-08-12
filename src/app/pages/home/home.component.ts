@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   email: string;
 
   constructor(private _sidebarService: SidebarService) { 
-    
+
   }
 
   ngOnInit() {

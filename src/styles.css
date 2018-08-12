@@ -6,8 +6,9 @@ html, body {
     box-sizing: border-box;
     height: 100%;
     margin: 0;
-    width: 30%;
+    width: 100%;
     font-family: 'Roboto';
+
   }
 
 .pointer{

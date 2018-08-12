@@ -1,12 +1,16 @@
 <mat-drawer #sidebar class="example-sidenav" mode="side">
-  <button mat-raised-button color ="warn" (click)="sidenav.close()" style="margin-left: 15%">
-    Close
+  <button  mat-mini-fab color ="warn" (click)="sidenav.close()" style="margin-left: 25%">
+    <i class="material-icons">
+      close
+      </i>
   </button>
-  <img [src]="photo" class="img-round">
+  <img 
+  [routerLink]="['/books','main']"
+  [src]="photo" class="img-round pointer">
   <h5>{{username}}</h5>
-  <h5>{{email}}</h5>
+  <h5 class="pointer">{{email}}</h5>
   <ul class="menuUl">
-    <li class="menuLi pointer" *ngFor="let menu of Menu">
+    <li   [routerLink]="['/books',menu.url]" class="menuLi pointer" *ngFor="let menu of Menu">
       {{menu.title}}
     </li>
   </ul>

@@ -2,24 +2,27 @@
 
 <div class="login">
 
-  <div fxFlex="grow" fxLayout="row"  fxFlexAlign="center center">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+    <div class="form" fxFlex="20">
+      <mat-card>
+          <div class="header">
+            <h1>Login</h1>
+          </div>
 
-      <div fxFlex 
-      class="form" >
-          <mat-card>
-            <div class="header">
-              <h3>Login</h3>
-            </div>
-         
-            <mat-card-content style="text-align: center">
-              <button 
-              (click)="login()"
-              mat-raised-button color = "primary">
-                Google
-              </button>
-            </mat-card-content>
-          </mat-card>
+          <mat-card-content style="text-align: center">
+            <h3>Login to Books with your favorite social network account</h3>
+            <button
+            (click)="login()"
+            mat-raised-button color="primary">
+            <i class="material-icons">
+              face
+              </i>
+              Google
+            </button>
+          </mat-card-content>
+      </mat-card>
     </div>
-    
+  </div>
+
   </div>
     

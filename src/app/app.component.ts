@@ -15,8 +15,9 @@ export class AppComponent {
       (user: any) => {
 
         if(user) {
-          this.router.navigate(['/books','main']);
+          
           this._userService.save(user);
+        
         }else {
           this.router.navigate(['/login']);
           

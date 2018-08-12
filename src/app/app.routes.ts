@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { UserLoginGuard } from './guards/user-login.guard';
+import { AddBookComponent } from './pages/books/add-book.component';
 
 const AppRoutes:Routes = [
 {
@@ -15,9 +16,8 @@ const AppRoutes:Routes = [
         component:MainComponent
     },
     {
-        path:'',
-        redirectTo:'main',
-        pathMatch:'full'
+        path:'add',
+        component:AddBookComponent
     }
 ]
     

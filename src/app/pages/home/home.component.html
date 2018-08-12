@@ -4,14 +4,19 @@
     </div>
 </div>
 
-<div  fxLayout="row">
+<div  fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="column">
+        <div class="example-sidenav-content">
         <mat-sidenav-container  class="container">
-                <app-sidebar name="userName" email="email"></app-sidebar>
-                <div class="example-sidenav-content">
-                    <button style="margin: 1%;" type="button" mat-raised-button color='primary' (click)="openSidebar()">
-                                Menu
+                <app-sidebar></app-sidebar>
+                
+                    <button style="margin: 1%;" type="button" mat-mini-fab color='primary' (click)="openSidebar()">
+                        <i class="material-icons">
+                            menu
+                            </i>
                     </button>
-                    <router-outlet></router-outlet>
-                  </div>
+                    <div style="width:100%">
+                            <router-outlet></router-outlet>
+                    </div>
             </mat-sidenav-container>
+        </div>
 </div>

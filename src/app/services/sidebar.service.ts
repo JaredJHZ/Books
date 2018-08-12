@@ -7,13 +7,16 @@ export class SidebarService {
 
   Menu:any =  [
     {
-      title: 'Profile'
+      title: 'Profile',
+      url:'main'
     },
     {
-      title: 'Comunnity'
+      title: 'Comunnity',
+      url:'main'
     },
     {
-      title:'Books'
+      title:'Books',
+      url:'main'
     }
   ]
 

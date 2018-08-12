@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="center">
+        <mat-card fxFlex="60">
+                <img [src]="user.photo" class="profile-img">
+
+                <mat-card-title>
+                    <h5>Welcome dear <small>{{user.username |username}} </small></h5>
+                </mat-card-title>
+                <mat-card-content>
+                        What are you going to do?
+                        <br>
+                        <button 
+                        [routerLink]="['/books','add']"
+                        class="but" mat-raised-button color="primary">
+                                Add book
+                        </button>
+                        <button class="but"  mat-raised-button color="accent">
+                                Update progress
+                        </button>
+                </mat-card-content>
+        </mat-card>
+</div>
