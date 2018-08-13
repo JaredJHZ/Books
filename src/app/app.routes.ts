@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { UserLoginGuard } from './guards/user-login.guard';
 import { AddBookComponent } from './pages/books/add-book.component';
+import { LibraryComponent } from './pages/books/library.component';
+import { BookComponent } from './pages/books/book.component';
 
 const AppRoutes:Routes = [
 {
@@ -18,6 +20,14 @@ const AppRoutes:Routes = [
     {
         path:'add',
         component:AddBookComponent
+    },
+    {
+        path:'library',
+        component:LibraryComponent
+    },
+    {
+        path:':id',
+        component: BookComponent
     }
 ]
     

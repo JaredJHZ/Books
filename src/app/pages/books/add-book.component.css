@@ -1,0 +1,22 @@
+.prueba{
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    max-height: 100%;
+    place-content: stretch center;
+    align-items: stretch;
+}
+
+.form{
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    max-width: 60%;
+}
+
+.title{
+    text-align: center;
+}
+
+.complete{
+    width: 100%;
+}

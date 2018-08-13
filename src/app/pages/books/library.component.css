@@ -1,0 +1,32 @@
+.content{
+    flex-direction: column;
+    display: flex;
+    align-items: center center;
+    margin-top: 12%;
+    z-index: 2;
+}
+
+.card{
+    background-color: #fff;
+    min-width: 100%;
+    min-height: 300px;
+    display: flex;
+    overflow-x: auto;
+    box-shadow: 2x 0px 0px 2px black;
+    margin-left:10px; 
+  
+}
+
+.card-content{
+        background-color: #603201;
+        min-width: 200px;
+        margin: 5px;
+}
+
+.card-content:hover {
+    box-shadow: 5px 5px 5px 5px black;
+}
+
+.card::-webkit-scrollbar {
+    display: none;
+  }

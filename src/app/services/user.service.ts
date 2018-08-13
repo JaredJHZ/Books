@@ -5,12 +5,15 @@ import {url} from '../urls';
 import {Http, Headers} from '@angular/http';
 import {MatSnackBar} from '@angular/material';
 import { Router } from '@angular/router';
+import { User } from '../interfaces/user.interface';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-user: any;
+user: User;
+
 
   url: string = url.url_users;
 
@@ -30,30 +33,33 @@ user: any;
   }
 
   save(user:any){
-    this.user = user;
-    localStorage.setItem('user', this.user.email);
-    localStorage.setItem('username',this.user.displayName);
-    localStorage.setItem('photo',this.user.photoURL);
-    localStorage.setItem('id', this.user.uid);
+    localStorage.setItem('user', user.email);
+    localStorage.setItem('username',user.displayName);
+    localStorage.setItem('photo',user.photoURL);
+    localStorage.setItem('id', user.uid);
+    
     this.http.get(`${this.url}${user.uid}.json`).subscribe(
       (user:any)=> {
-        if(user._body == 'null') {
+ 
+        if(user._body === 'null') {
+          this.user = this.getInfo();
+
           let newUser = {
-            user: this.user.displayName,
+            user: this.user.name,
             email: this.user.email
           }
           let headers = new Headers({
             'Content-Type':'application/json'
           });
-          this.http.post(`${this.url}${this.user.uid}.json`,newUser,{headers}).subscribe(
+          this.http.post(`${this.url}${this.user.id}.json`,newUser,{headers}).subscribe(
             (newUser) => {
               console.log(newUser);
             }
           )
-        } else {
-          this.snackbar.open('Bienvenido de nuevo','close',{duration:1000});
+        }else {
           this.route.navigate(['/books','main']);
-
+          this.snackbar.open('Bienvenido de nuevo','close',{duration:1000});
+          
         }
       }
     )
@@ -72,11 +78,13 @@ user: any;
     }
   }
 
-  getInfo(): any{
-    let user: any = {};
-    user.email = localStorage.getItem('user');
-    user.username = localStorage.getItem('username');
-    user.photo = localStorage.getItem('photo');
+  getInfo(): User{
+    let user: User = {
+      email : localStorage.getItem('user'),
+      name : localStorage.getItem('username'),
+      photo : localStorage.getItem('photo'),
+      id : localStorage.getItem('id')
+    };
     return user;
   }
 }

@@ -2,9 +2,64 @@
     width: 100%;
     height:96vh;
     border: 1px solid rgba(0, 0, 0, 0.5);
-    background: #FF5722;
+   
+    z-index: 100;
   }
 
 .head{
   background: #97C95C;
+}
+
+
+  
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.menuUl {
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  padding: 0%;
+}
+.menuLi{
+margin-top: 35px;
+}
+
+.menuLi:hover {
+color: #C9954E;
+}
+
+.registerB {
+margin: 2%;
+position: fixed;
+bottom: 5;
+}
+
+.img-round{
+width: 50px;
+height: 50px;
+margin: 12% 5% 12% 25%;
+border-radius: 15px;
+display: block;
+}
+
+.background-image {
+  background-image: url('http://www.projgirlspire.com/wp-content/uploads/2016/10/why-you-should-read-and-re-read-these-high-school-books-as-an-adult.jpeg');
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 0;
 }

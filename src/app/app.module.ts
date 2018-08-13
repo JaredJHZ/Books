@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {HttpModule} from '@angular/http';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 //material
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -21,6 +22,7 @@ import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { UsernamePipe } from './pipes/username.pipe';
+import { KeysPipe } from './pipes/keys.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { UsernamePipe } from './pipes/username.pipe';
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebase, 'Books'),
     AngularFireAuthModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+<div class="content">
+
+        <div class="book color" *ngIf="book">
+                <h3 style="text-align: center">
+                        {{book.title}}
+                </h3>
+                <div class="content">
+                        <p>Author : {{book.author}}</p>
+                        <p>Publisher: {{book.publisher}}</p>
+                        <p>You've already read {{book.read}} of {{book.pages}} pages</p>
+                </div>
+        </div>
+
+        <mat-card *ngIf="doughnutChartData.length>0" class="card">
+                <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="labels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+        </mat-card>
+            
+</div>
