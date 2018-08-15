@@ -13,6 +13,7 @@
     align-items: center;
     margin-top: 1%;
     z-index: 2;
+    padding: 0.2px;
 }
 
 .color{
@@ -22,9 +23,10 @@
 .book{
     z-index: 3;
     min-width: 50%;
-    max-width: 50%;
+    max-width: 100%;
     background: whitesmoke;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
 }
 
 .content{

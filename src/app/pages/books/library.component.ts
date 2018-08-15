@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { Router } from '@angular/router';
+import { Book } from '../../interfaces/book.interface';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from '../../../../node_modules/rxjs';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-library',
@@ -8,19 +12,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent implements OnInit {
+ 
+  private booksCollection: AngularFirestoreCollection<Book>; //creo una coleccion de firestore de tipo Book 
+  books: Observable<Book[]>; // creo un observable para actualizar en tiempo real los libros
+  user:any;
 
-  library:any[]=[];
-
-  constructor(private _booksService:BooksService, private router:Router) {
-    this._booksService.getAllBooks().subscribe(
-      (library:any) => {
-        this.library = library;
-      }
-    );
-   }
+  constructor(private _userService: UserService, private router:Router, private afs:AngularFirestore) {
+    this.user = this._userService.getInfo(); // obtengo la info del usuario
+  }
 
   ngOnInit() {
-
+    this.booksCollection = this.afs.collection('users').doc(this.user.id).collection('books'); //hago referencia al enlace del usuario
+    this.books = this.booksCollection.valueChanges(); // asigno el observable de el enlace de los libros del usuario
   }
 
   goTo(id: string) {

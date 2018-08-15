@@ -17,7 +17,7 @@ export class AddBookComponent implements OnInit {
           'title': new FormControl('',[Validators.required]),
           'author':new FormControl('', [Validators.required]),
           'publisher':new FormControl('', [Validators.required]),
-          'pages': new FormControl('', [Validators.required,this.isNumber]),
+          'pages': new FormControl('', [Validators.required, this.isNumber]),
           'pagesR': new FormControl('', [Validators.required, this.isNumber])
         }
     );
@@ -26,21 +26,45 @@ export class AddBookComponent implements OnInit {
   ngOnInit() {
   }
 
-  guardar(){
+  guardar(): void{
+
     if (this.booksForm.status === 'INVALID'){
-      this.snack.open('Error verifique los campos','close',{duration:2000});
+      this.errorsHandler();
       return;
     } 
-    this._bookService.saveBook(this.booksForm.value).subscribe();
-   
+    this._bookService.saveBook(this.booksForm.value).then(
+      (book) => {
+        this.snack.open('Book added to your library','close',{duration:1000});
+      }
+    )
   }
 
   isNumber(control:FormControl):{[s:string]:boolean}{
-    if(typeof control.value !== 'number'){
-      return{
+    let num =  parseInt(control.value) || 'no number';
+    let zero = (control.value === "0")? true:false;
+    let isnum = typeof num == 'number'? true:false;
+    console.log(isnum);
+    if(isnum === false && zero === false) {
+      return {
         notNumber:true
       }
     }
     return null;
   }
+
+  errorsHandler(): void {
+    let errors:string ='';
+    for(let control in this.booksForm.controls) {
+
+      if(this.booksForm.controls[control].errors!== null) {
+        for(let e in this.booksForm.controls[control].errors) {
+          errors += control+' : '+e+'\n';
+        }
+      }
+    }
+   this.snack.open('Errors: '+errors,'close',{duration:3000});
+  }
+  }
+
+
 }

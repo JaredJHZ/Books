@@ -7,12 +7,15 @@ import {map} from 'rxjs/operators';
 import { url } from '../urls';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
+import {AngularFirestore} from 'angularfire2/firestore';
+import { Query } from '@firebase/firestore-types';
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
   user:User;
   url = url.url_users;
+  
 
   book: Book = {
     id: null,
@@ -24,53 +27,60 @@ export class BooksService {
   };
 
 
-  constructor(private _userService:UserService, private http:Http, private snack:MatSnackBar, private router:Router) {
+  constructor(private _userService:UserService, private http:Http, private snack:MatSnackBar, private router:Router , private fire:AngularFirestore) {
     this.user = this._userService.getInfo();
     
   }
 
   saveBook(book:Book) {
-    let url = `${this.url}${this.user.id}/books/.json`;
-    let headers = new Headers({
-      'Content-Type':'application/json'
-    });
-    return this.http.post(url,book,{headers}).pipe(
-      map(
-        (book) => {
-          this.snack.open('Book added to your library','close',{duration:1000});
-        }
-      )
-    )
+  this.user = this._userService.getInfo();
+   let bookUrl =  this.fire.collection('users').doc(this.user.id).collection('books').add( book ).then(
+      (book)=> {
+        this._userService.user = this._userService.getInfo();
+        let uid = this._userService.user.id;
+        let updateId = this.fire.collection('users').doc(this.user.id).collection('books').doc(book.id).update(
+           
+            {id:book.id, uid: uid}
+        );
+      }
+   );
+
+   return bookUrl;
   }
 
-  getAllBooks(){
-    let url =  `${this.url}${this.user.id}/books/.json`;
-    let headers = new Headers({
-      'Content-Type':'application/json'
+  getAllBooks():Book[]{
+   this.user = this._userService.getInfo();
+   let books = this.fire.collection('users').doc(this.user.id).collection('books');
+   let library: Book[] = [];
+   let query = books.ref.get().then(
+    (querySnapshot) => {
+      querySnapshot.forEach(function(book) {
+       library.push(
+         {id: book.id, title: book.data().title, author: book.data().author,
+           pages: book.data().pages, publisher: book.data().publisher, read: book.data().pagesR 
+         }
+        );
     });
-    return this.http.get(url,{headers}).pipe(
-      map(
-        (response: any)=> {
-          return JSON.parse(response._body);
-        }
-      
-      ) 
-    )
+    }
+   )
+   return library;
   }
 
   getBook(id: string) {
-    let headers = new Headers({
-      'Content-Type':'application/json'
-    });
-    let url = `${this.url}${this.user.id}/books/${id}.json`;
-    return this.http.get(url, {headers}).pipe(
-      map(
-        (resp: any) => {
-         this.book = JSON.parse(resp._body);
-         return this.book;
+    this.user = this._userService.getInfo();
+    let book = this.fire.collection('users').doc(this.user.id).collection('books').doc(id);
+    let bookInfo;
+    return new Promise ( (resolve,reject) => {
+      let query = book.ref.get().then(
+        (book) => {
+          if (book.exists === false) {
+            reject('No info');
+          }
+          resolve(book.data());
         }
       )
-    )
+    })
+    
   }
 
 

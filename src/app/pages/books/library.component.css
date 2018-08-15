@@ -7,20 +7,20 @@
 }
 
 .card{
-    background-color: #fff;
     min-width: 100%;
-    min-height: 300px;
+    min-height: 350px;
     display: flex;
-    overflow-x: auto;
-    box-shadow: 2x 0px 0px 2px black;
-    margin-left:10px; 
+    overflow-x: auto; 
   
 }
 
 .card-content{
-        background-color: #603201;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         min-width: 200px;
         margin: 5px;
+        margin-left:10px; 
+        z-index: 5;
+        height: 100%;
 }
 
 .card-content:hover {
@@ -29,4 +29,5 @@
 
 .card::-webkit-scrollbar {
     display: none;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }

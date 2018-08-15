@@ -9,24 +9,30 @@ import { Book } from '../../interfaces/book.interface';
 })
 export class BookComponent implements OnInit {
 
-  book: Book = null;
-  public labels:string[] = ['Leido', 'No leido'];
+  book: any;
+  public labels:string[] = ['Read', 'Not read'];
   public doughnutChartData:number[] = [];
   public doughnutChartType:string = 'doughnut';
 
   constructor(private _bookService:BooksService, private route: ActivatedRoute) {
     this.route.params.subscribe(
       (params)=> {
-        let id = params['id'];
-        this._bookService.getBook(id).subscribe(
-          (book: Book) => {
-            this.book = book
-            this.doughnutChartData.push(this.book.read);
-            this.doughnutChartData.push(this.book.pages);
+            let id = params['id'];
+            this._bookService.getBook(id).then(
+              (book)=>{
+                this.book = book;
+                let percentRead = this.percentBook(this.book.pages,this.book.pagesR);
+                let total = this.percentBook(this.book.pages,this.book.pages) - percentRead;
+                this.doughnutChartData.push(percentRead);
+                this.doughnutChartData.push(total);
+              }
+            )
           }
         );
-      }
-    )
+  }
+    
+   percentBook(pages,read): number {
+      return ( read * 100) / pages; 
    }
 
   ngOnInit() {

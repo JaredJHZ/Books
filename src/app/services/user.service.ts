@@ -6,7 +6,8 @@ import {Http, Headers} from '@angular/http';
 import {MatSnackBar} from '@angular/material';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user.interface';
-
+import {AngularFirestore} from 'angularfire2/firestore';
+import { Query } from '@firebase/firestore-types';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,7 @@ user: User;
 
   url: string = url.url_users;
 
-  constructor(public fireAuth: AngularFireAuth , private http:Http, private snackbar:MatSnackBar, private route: Router) {
+  constructor(public fireAuth: AngularFireAuth , private http:Http, private snackbar:MatSnackBar, private route: Router, private fire:AngularFirestore) {
     
   }
 
@@ -37,32 +38,27 @@ user: User;
     localStorage.setItem('username',user.displayName);
     localStorage.setItem('photo',user.photoURL);
     localStorage.setItem('id', user.uid);
-    
-    this.http.get(`${this.url}${user.uid}.json`).subscribe(
-      (user:any)=> {
- 
-        if(user._body === 'null') {
-          this.user = this.getInfo();
 
-          let newUser = {
-            user: this.user.name,
-            email: this.user.email
-          }
-          let headers = new Headers({
-            'Content-Type':'application/json'
-          });
-          this.http.post(`${this.url}${this.user.id}.json`,newUser,{headers}).subscribe(
-            (newUser) => {
-              console.log(newUser);
+        let u = this.getInfo();
+        let allUsers = this.fire.collection('users');
+        let query:Query = allUsers.ref.where('users','==',u.id);
+        query.get().then(
+          (docs)=> {
+            if(docs.size > 0){
+              console.log('Usuarios ya registrado');
+            } else { 
+              allUsers.doc(u.id).set({
+                name: u.name,
+                email: u.email,
+                photo: u.photo
+              });
+            //  this.route.navigate(['/books','main']);
+              this.snackbar.open('Bienvenido de nuevo','close',{duration:1000});
             }
-          )
-        }else {
-          this.route.navigate(['/books','main']);
-          this.snackbar.open('Bienvenido de nuevo','close',{duration:1000});
-          
-        }
-      }
-    )
+          }
+        )
+
+     
   }
   delete() {
     localStorage.removeItem('user');

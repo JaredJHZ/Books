@@ -5,5 +5,6 @@ export interface Book {
     publisher: string,
     pages: number,
     read: number,
-    img?: string
+    img?: string,
+    uid?:string
 }

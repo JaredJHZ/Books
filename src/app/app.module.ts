@@ -22,7 +22,9 @@ import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { UsernamePipe } from './pipes/username.pipe';
-import { KeysPipe } from './pipes/keys.pipe';
+import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
