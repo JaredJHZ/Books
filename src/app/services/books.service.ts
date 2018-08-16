@@ -83,5 +83,13 @@ export class BooksService {
     
   }
 
+  deleteBook(id:string) {
+    let bookD = this.fire.collection('users').doc(this.user.id).collection('books').doc(id);
+
+    bookD.delete().then(
+      ()=>this.snack.open('Book deleted','close',{duration:1000})
+    ).catch(()=> console.log('error'));
+  }
+
 
 }

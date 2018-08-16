@@ -15,11 +15,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {APPR} from './app.routes';
 import { MainComponent } from './pages/main/main.component';
-import { RouterModule } from '../../node_modules/@angular/router';
+
 
 //firebase
 import { AngularFireModule } from 'angularfire2';
-import { firebase } from '../environments/environment';
+import {firebase} from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { UsernamePipe } from './pipes/username.pipe';
 import { AngularFirestore } from '../../node_modules/angularfire2/firestore';

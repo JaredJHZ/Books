@@ -19,7 +19,7 @@ export class LibraryComponent implements OnInit {
   books: Observable<Book[]>; // creo un observable para actualizar en tiempo real los libros
   user:any;
 
-  constructor(private _userService: UserService, private router:Router, private afs:AngularFirestore) {
+  constructor(private _userService: UserService, private router:Router, private afs:AngularFirestore, private _bookService:BooksService) {
     this.user = this._userService.getInfo(); // obtengo la info del usuario
   }
 
@@ -32,4 +32,11 @@ export class LibraryComponent implements OnInit {
     this.router.navigate(['/books',id]);
   }
 
+  delete(id:string) {
+    this._bookService.deleteBook(id);
+  }
+
+  noDelete(){
+    return;
+  }
 }

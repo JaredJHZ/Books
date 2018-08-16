@@ -10,7 +10,8 @@ import { LibraryComponent } from '../books/library.component';
 import { KeysPipe } from '../../pipes/keys.pipe';
 import { BookComponent } from '../books/book.component';
 import {ChartsModule } from 'ng2-charts';
-
+import { UpdateProgressComponent } from '../books/update-progress/update-progress.component';
+import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,11 +19,12 @@ import {ChartsModule } from 'ng2-charts';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule 
+    ChartsModule ,
+    SweetAlert2Module.forRoot()
     
   ],
   exports:[HomeComponent,MaterialModule],
-  declarations: [HomeComponent, AddBookComponent, LibraryComponent,KeysPipe, BookComponent],
+  declarations: [HomeComponent, AddBookComponent, LibraryComponent,KeysPipe, BookComponent, UpdateProgressComponent],
   providers:[SidebarService,KeysPipe]
 })
 export class PagesModule { }

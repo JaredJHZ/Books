@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { BooksService } from '../../services/books.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
@@ -11,7 +12,7 @@ export class AddBookComponent implements OnInit {
 
   booksForm: FormGroup;
 
-  constructor(private snack:MatSnackBar, private _bookService: BooksService) {
+  constructor(private snack:MatSnackBar, private _bookService: BooksService, private router:Router) {
     this.booksForm = new FormGroup(
         {
           'title': new FormControl('',[Validators.required]),
@@ -35,6 +36,7 @@ export class AddBookComponent implements OnInit {
     this._bookService.saveBook(this.booksForm.value).then(
       (book) => {
         this.snack.open('Book added to your library','close',{duration:1000});
+        this.router.navigate(['/books','library']);
       }
     )
   }
@@ -43,7 +45,6 @@ export class AddBookComponent implements OnInit {
     let num =  parseInt(control.value) || 'no number';
     let zero = (control.value === "0")? true:false;
     let isnum = typeof num == 'number'? true:false;
-    console.log(isnum);
     if(isnum === false && zero === false) {
       return {
         notNumber:true

@@ -13,7 +13,9 @@
                         class="but" mat-raised-button color="primary">
                                 Add book
                         </button>
-                        <button class="but"  mat-raised-button color="accent">
+                        <button
+                        [routerLink]="['/books','library']"
+                        class="but"  mat-raised-button color="accent">
                                 Update progress
                         </button>
                 </mat-card-content>

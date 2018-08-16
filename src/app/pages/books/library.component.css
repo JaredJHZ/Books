@@ -4,6 +4,10 @@
     align-items: center center;
     margin-top: 12%;
     z-index: 2;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .card{
@@ -30,3 +34,7 @@
     display: none;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
+
+.buttons {
+    margin:5%;
+}
