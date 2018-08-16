@@ -8,17 +8,16 @@
 
 .card{
     min-width: 100%;
-    min-height: 350px;
+    min-height: 650px;
     display: flex;
     overflow-x: auto; 
-  
+    margin: 15px;
 }
 
 .card-content{
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         min-width: 200px;
-        margin: 5px;
-        margin-left:10px; 
+        margin: 25px;
         z-index: 5;
         height: 100%;
 }

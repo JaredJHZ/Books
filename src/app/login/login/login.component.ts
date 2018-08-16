@@ -12,7 +12,16 @@ export class LoginComponent implements OnInit, OnDestroy {
   user:Subscription;
 
   constructor(public _userService: UserService, public router: Router ) { 
-    this.user  = this._userService.fireAuth.authState.subscribe();
+    this.user = this._userService.fireAuth.authState.subscribe(
+      (observer)=> {
+        if ( observer !== null) {
+          if (observer.hasOwnProperty('uid')){
+            this.router.navigate(['/books','main']); 
+          }
+        }
+      }
+    );
+
     
   }
 
@@ -26,9 +35,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login(): void {
     this._userService.login();
-    setTimeout(() => {
-      this.router.navigate(['/books','main']);
-    }, 4000);
+
   }
 
 

@@ -5,15 +5,15 @@
     <div 
     (click)="goTo(book.id)"
     class="card-content pointer" fxLayout="column" fxFlex="30" *ngFor="let book of books | async">
-      <mat-card style="color:#97C95C;" class="">
+      <mat-card [matBadge]='book.pages-book.pagesR' matBadgeSize="large"  matBadgeOverlap="true" matBadgePosition="after" matBadgeColor="accent" style="color:#97C95C;" class="">
         <mat-card-title>
           {{book.title}}
         </mat-card-title>
-        <mat-card-content>
+        <mat-card-content >
             {{book.author}}
             <br>
             <br>
-            <h5 style="color:black">Progress:<br><small>{{book.read}}/{{book.pages}}</small></h5>
+            <h5 style="color:black">Progress:<br><small>{{book.pagesR}}/{{book.pages}}</small></h5>
         </mat-card-content>
       </mat-card>
   </div>

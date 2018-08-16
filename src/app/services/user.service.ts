@@ -33,7 +33,7 @@ user: User;
     this.snackbar.open('Hasta luego','close',{duration:1000});
   }
 
-  save(user:any){
+  save(user:any): void{
     localStorage.setItem('user', user.email);
     localStorage.setItem('username',user.displayName);
     localStorage.setItem('photo',user.photoURL);
@@ -52,7 +52,6 @@ user: User;
                 email: u.email,
                 photo: u.photo
               });
-            //  this.route.navigate(['/books','main']);
               this.snackbar.open('Bienvenido de nuevo','close',{duration:1000});
             }
           }

@@ -12,6 +12,8 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent implements OnInit {
+
+  num = 3;
  
   private booksCollection: AngularFirestoreCollection<Book>; //creo una coleccion de firestore de tipo Book 
   books: Observable<Book[]>; // creo un observable para actualizar en tiempo real los libros
