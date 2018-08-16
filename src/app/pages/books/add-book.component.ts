@@ -64,7 +64,4 @@ export class AddBookComponent implements OnInit {
     }
    this.snack.open('Errors: '+errors,'close',{duration:3000});
   }
-
 }
-
-

@@ -28,12 +28,26 @@ const AppRoutes:Routes = [
     {
         path:':id',
         component: BookComponent
+    }, {
+        path:'',
+        component: MainComponent,
+        
+        
+    },
+    {
+        path:'**',
+        redirectTo:'main',
+        pathMatch:'full'
     }
 ]
     
 },
 {
     path:'login',
+    component:LoginComponent
+},
+{
+    path:'',
     component:LoginComponent
 }
 ];
