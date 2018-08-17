@@ -6,6 +6,7 @@ import { UserLoginGuard } from './guards/user-login.guard';
 import { AddBookComponent } from './pages/books/add-book.component';
 import { LibraryComponent } from './pages/books/library.component';
 import { BookComponent } from './pages/books/book.component';
+import { GuardsGuard } from './guards/guards.guard';
 
 const AppRoutes:Routes = [
 {
@@ -47,9 +48,6 @@ const AppRoutes:Routes = [
     component:LoginComponent
 },
 {
-    path:'',
-    component:LoginComponent
-},{
     path:'**',
     redirectTo:'login',
     pathMatch:'full'
