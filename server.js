@@ -3,10 +3,10 @@ const express = require('express'),
     
 const app = express();
 
-app.use(express.static('./dist/books-app'));
+app.use(express.static('./dist/booksApp'));
 
 app.get('/', (req,res)=> {
-    res.sendFile(path.join(__dirname,'dist/books-app/index.html'));
+    res.sendFile(path.join(__dirname,'dist/booksApp/index.html'));
 });
 
 app.listen(process.env.PORT || 8080, ()=> {

@@ -11,8 +11,7 @@ import { GuardsGuard } from './guards/guards.guard';
 const AppRoutes:Routes = [
 {
     path:'books',
-    canActivate:[UserLoginGuard]
-    ,
+    canActivate:[UserLoginGuard],
     component:HomeComponent,
     children:[{
         path:'main',
@@ -41,7 +40,6 @@ const AppRoutes:Routes = [
         pathMatch:'full'
     }
 ]
-    
 },
 {
     path:'login',
