@@ -1,11 +1,12 @@
 
-<div class="content">
+<div class="content" style="overflow-y: hidden;">
   <h1 style="text-align: center; color: white;">Your Library</h1>
   <div class="card">
     <div 
     (click)="goTo(book.id)"
     class="card-content pointer" fxLayout="column" fxFlex="30" *ngFor="let book of books | async">
-      <mat-card [matBadge]='book.pages-book.pagesR' matBadgeSize="large"  matBadgeOverlap="true" matBadgePosition="after" matBadgeColor="accent" style="color:#97C95C;" class="">
+      <mat-card 
+      style="color:#97C95C;">
         <mat-card-title>
           {{book.title}}
         </mat-card-title>

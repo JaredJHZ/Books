@@ -8,16 +8,28 @@
                         <p>Author : {{book.author}}</p>
                         <p>Publisher: {{book.publisher}}</p>
                         <p style="padding: 2.2px;">You've already read {{book.pagesR}} of {{book.pages}} pages</p>
+
                 </div>
         </div>
-
+<br>
         <mat-card *ngIf="doughnutChartData.length>0" class="card">
-                <canvas baseChart
-                [data]="doughnutChartData"
-                [labels]="labels"
-                [chartType]="doughnutChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
+                <canvas
+                        baseChart
+                         height="180" width="80"
+                        [data]="doughnutChartData"
+                        [labels]="labels"
+                        [chartType]="doughnutChartType"
+                        [options]="options"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)">
+                </canvas>
         </mat-card>
-            
+                            
+        <button
+        (click)="update()"
+        style="margin: 1%;" type="button" mat-mini-fab color='primary' class="update">
+                        <i class="material-icons">
+                                        update
+                        </i>
+       </button>
 </div>

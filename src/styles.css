@@ -24,3 +24,7 @@ html, body {
 .noneOut{
     outline: none;
 }
+
+.mat-drawer-content {
+    overflow-y:hidden !important;
+  }

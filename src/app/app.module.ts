@@ -25,6 +25,7 @@ import { UsernamePipe } from './pipes/username.pipe';
 import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
     FormsModule,
     ReactiveFormsModule
   ],
+  entryComponents: [],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })

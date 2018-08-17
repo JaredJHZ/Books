@@ -91,5 +91,19 @@ export class BooksService {
     ).catch(()=> console.log('error'));
   }
 
+  updateBook(id:string,pages:number) {
+    let bookU = this.fire.collection('users').doc(this.user.id).collection('books').doc(id);
+    return new Promise ((resolve,reject) => {
+      bookU.update({
+        'pagesR':pages
+      }).then(
+        (ok)=> { 
+          this.snack.open('Pages updated','close',{duration:1000});
+          resolve(true);
+        } 
+      )
+    })
+  }
+
 
 }

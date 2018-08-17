@@ -3,8 +3,10 @@
     z-index: 3;
     min-width: 50%;
     max-width: 50%;
+    min-height: 150px;
+    max-height: 500px;
     display: flex;
-    margin: 15px;
+    margin: 1px;
 }
 
 .content{
@@ -24,7 +26,7 @@
     z-index: 3;
     min-width: 50%;
     max-width: 100%;
-    background: whitesmoke;
+    background: #FFFFFF;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   
 }
@@ -32,4 +34,10 @@
 .content{
 
     text-align: justify;
+}
+
+.update{
+    position: relative;
+    top: -35px;
+    left: 43%;
 }

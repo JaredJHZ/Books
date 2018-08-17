@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {   MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-progress',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProgressComponent implements OnInit {
 
-  constructor() { }
+  pages:number;
+
+  constructor(public dialogRef: MatDialogRef<UpdateProgressComponent>, @Inject(MAT_DIALOG_DATA) public data:any ) {
+    this.pages = 0;
+   }
 
   ngOnInit() {
+
+  }
+
+  guardar() {
+    this.dialogRef.close(this.pages);
+  }
+
+  cancelar() {
+    this.dialogRef.close(0);
   }
 
 }

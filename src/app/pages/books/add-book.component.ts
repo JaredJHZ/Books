@@ -43,8 +43,10 @@ export class AddBookComponent implements OnInit {
 
   isNumber(control:FormControl):{[s:string]:boolean}{
     let num =  parseInt(control.value) || 'no number';
-    let zero = (control.value === "0")? true:false;
-    let isnum = typeof num == 'number'? true:false;
+    let zero = (control.value === 0) ? true:false;
+    let isnum = typeof num == 'number' ? true:false;
+    console.log(num);
+    console.log(zero);
     if(isnum === false && zero === false) {
       return {
         notNumber:true
