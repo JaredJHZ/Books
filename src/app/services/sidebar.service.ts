@@ -13,6 +13,10 @@ export class SidebarService {
     {
       title:'Library',
       url:'library'
+    },
+    {
+      title:'Add book',
+      url:'add'
     }
   ]
 
