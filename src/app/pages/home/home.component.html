@@ -1,15 +1,15 @@
-<div class="head" fxLayout="row" fxLayout.xs="column" >
-    <div [ngStyle]="{'font-size.px': 15, color: 'black'}" fxFlex>
-        <h1 style="text-align:center; margin: 0;">Books</h1>
-    </div>
-</div>
 
 <div style="overflow-y: hidden; height: 100%;" fxLayout="row" fxLayoutAlign="center center" fxLayout.xs="column">
   
         <div style="overflow-y: hidden;" class="example-sidenav-content">
         
         <mat-sidenav-container style="overflow-y: hidden;"  class="container">
-            
+
+            <div class="head" fxLayout="row" fxLayout.xs="column" >
+                <div [ngStyle]="{'font-size.px': 15, color: 'black'}" fxFlex>
+                    <h1 style="text-align:center; margin: 0;">Books</h1>
+                </div>
+            </div>            
  
                 <mat-sidenav #sidebar  class="example-sidenav" mode="over">
                      

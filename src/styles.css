@@ -8,8 +8,7 @@ html, body {
     margin: 0;
     width: 100%;
     font-family: 'Roboto';
-    overflow: hidden
-
+    overflow: hidden;
   }
 
 .pointer{
@@ -28,3 +27,4 @@ html, body {
 .mat-drawer-content {
     overflow-y:hidden !important;
   }
+

@@ -7,6 +7,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatInputModule} from '@angular/material/input';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatDialogModule} from '@angular/material/dialog';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     MatSidenavModule,
@@ -15,7 +16,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSnackBarModule,
     MatInputModule,
     MatBadgeModule,
-    MatDialogModule
+    MatDialogModule,
+    NoopAnimationsModule
   ],
   exports: [MatSidenavModule,MatButtonModule,MatCardModule,MatSnackBarModule,MatInputModule,MatBadgeModule,
   MatDialogModule],

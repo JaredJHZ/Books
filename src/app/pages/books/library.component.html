@@ -5,26 +5,25 @@
     <div 
     (click)="goTo(book.id)"
     class="card-content pointer" fxLayout="column" fxFlex="30" *ngFor="let book of books | async">
-      <mat-card 
-      style="color:#97C95C;">
+      <mat-card class="inside">
         <mat-card-title>
           {{book.title}}
         </mat-card-title>
-        <mat-card-content >
+        <mat-card-content style="text-align: center" >
             {{book.author}}
             <br>
             <br>
             <h5 style="color:black">Progress:<br><small>{{book.pagesR}}/{{book.pages}}</small></h5>
             <button
             (click)="goTo(book.id)"
-            class="buttons" mat-stroked-button color="primary">
+            class="buttons" mat-raised-button color="primary">
               View
             </button>
             <button
             [swal]="{title:'Do you want to delete the book?', showCanelButton:true}"
             (confirm)="delete(book.id)"
             (cancel)="noDelete()"
-            class="buttons" mat-stroked-button color="warn">
+            class="buttons" mat-raised-button color="warn">
               Delete
             </button>
         </mat-card-content>
