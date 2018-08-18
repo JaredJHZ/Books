@@ -34,9 +34,9 @@ export class AddBookComponent implements OnInit {
       return;
     } 
     this._bookService.saveBook(this.booksForm.value).then(
-      (book) => {
+      (id:any) => {
         this.snack.open('Book added to your library','close',{duration:1000});
-        this.router.navigate(['/books','library']);
+        this.router.navigate(['/books','update',id]);
       }
     )
   }

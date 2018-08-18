@@ -9,6 +9,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {AngularFirestore} from 'angularfire2/firestore';
 import { Query } from '@firebase/firestore-types';
+import { resolve } from 'dns';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,18 +35,26 @@ export class BooksService {
 
   saveBook(book:Book) {
   this.user = this._userService.getInfo();
-   let bookUrl =  this.fire.collection('users').doc(this.user.id).collection('books').add( book ).then(
-      (book)=> {
-        this._userService.user = this._userService.getInfo();
-        let uid = this._userService.user.id;
-        let updateId = this.fire.collection('users').doc(this.user.id).collection('books').doc(book.id).update(
-           
-            {id:book.id, uid: uid}
-        );
-      }
-   );
+  return new Promise(
+    (resolve,reject) => {
+      let bookUrl =  this.fire.collection('users').doc(this.user.id).collection('books').add( book ).then(
+        (book)=> {
+          this._userService.user = this._userService.getInfo();
+          let uid = this._userService.user.id;
+          let updateId = this.fire.collection('users').doc(this.user.id).collection('books').doc(book.id).update(
+             
+              {id:book.id, uid: uid}
+              
+          );
+          resolve(book.id);
+        },
+        () => reject()
+     );
+    }
+  )
+   
 
-   return bookUrl;
+
   }
 
   getAllBooks():Book[]{
