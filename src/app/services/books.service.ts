@@ -3,13 +3,11 @@ import { UserService } from './user.service';
 import { Book } from '../interfaces/book.interface';
 import {Http, Headers} from '@angular/http';
 import { User } from '../interfaces/user.interface';
-import {map} from 'rxjs/operators';
 import { url } from '../urls';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 import {AngularFirestore} from 'angularfire2/firestore';
-import { Query } from '@firebase/firestore-types';
-import { resolve } from 'dns';
+
 @Injectable({
   providedIn: 'root'
 })
