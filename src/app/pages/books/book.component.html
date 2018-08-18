@@ -1,4 +1,4 @@
-<div class="content">
+<div *ngIf="book" class="content">
 
         <div class="book color" *ngIf="book">
                 <h3 style="text-align: center">
@@ -8,7 +8,13 @@
                         <p>Author : {{book.author}}</p>
                         <p>Publisher: {{book.publisher}}</p>
                         <p style="padding: 2.2px;">You've already read {{book.pagesR}} of {{book.pages}} pages</p>
-
+                        <button
+                        style="margin-bottom: 3px"
+                        (click)="updateInfo()"
+                        class="buttons" mat-raised-button color="accent"
+                        >
+                        Update Book Info
+                        </button>
                 </div>
         </div>
 <br>
@@ -28,8 +34,8 @@
         <button
         (click)="update()"
         style="margin: 1%;" type="button" mat-mini-fab color='primary' class="update">
-                        <i class="material-icons">
-                                        update
+        <i class="material-icons">
+                        create
                         </i>
        </button>
 </div>

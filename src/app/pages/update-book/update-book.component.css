@@ -1,0 +1,21 @@
+.prueba{
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    max-height: 100%;
+    place-content: stretch center;
+    align-items: stretch;
+    justify-content: center;
+    text-align: center;
+}
+
+.form{
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    max-width: 60%;
+    text-align: center;
+}
+.complete{
+    width: 100%;
+}

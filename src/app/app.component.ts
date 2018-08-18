@@ -16,7 +16,11 @@ export class AppComponent{
       (user: any) => {
         if(user) {
             this._userService.save(user);
-            this.fireAuth.auth.onAuthStateChanged((user)=> {})
+            this.fireAuth.auth.onAuthStateChanged((user)=> {
+              if(!user){
+                this.router.navigate(['/login']);
+              }
+             })
         }else {
           this.router.navigate(['/login']);
         }

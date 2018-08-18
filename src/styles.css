@@ -28,3 +28,9 @@ html, body {
     overflow-y:hidden !important;
   }
 
+.img {
+    min-width: 40%;
+    max-width: 50%;
+    min-height: 100px;
+    max-height: 400px;
+}

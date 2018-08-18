@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BooksService } from '../../services/books.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatDialogConfig, MatSnackBar} from '@angular/material';
 import { UpdateProgressComponent } from './update-progress/update-progress.component';
 import { BaseChartDirective } from '../../../../node_modules/ng2-charts';
@@ -22,7 +22,7 @@ public chart: BaseChartDirective;
     'maintainAspectRatio': false
   }
 
-  constructor(private _bookService:BooksService, private route: ActivatedRoute, public dialog:MatDialog, private snack:MatSnackBar) {
+  constructor(private _bookService:BooksService, private route: ActivatedRoute, public dialog:MatDialog, private snack:MatSnackBar, private router:Router) {
     this.route.params.subscribe(
       (params)=> {
             let id = params['id'];
@@ -80,5 +80,8 @@ public chart: BaseChartDirective;
     )
   }
 
+  updateInfo() {
+    this.router.navigate(['/books','update',this.book.id]);
+  }
 
 }

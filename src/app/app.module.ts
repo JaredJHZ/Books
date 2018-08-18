@@ -23,6 +23,7 @@ import {firebase} from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { UsernamePipe } from './pipes/username.pipe';
 import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
+import { UpdateBookComponent } from './pages/update-book/update-book.component';
 
 
 
@@ -31,7 +32,8 @@ import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
     AppComponent,
     LoginComponent,
     MainComponent,
-    UsernamePipe
+    UsernamePipe,
+    UpdateBookComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
     PagesModule,
     APPR,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(firebase, 'Books'),
+    AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     HttpModule,
     FormsModule,

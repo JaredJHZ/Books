@@ -6,7 +6,7 @@ import { UserLoginGuard } from './guards/user-login.guard';
 import { AddBookComponent } from './pages/books/add-book.component';
 import { LibraryComponent } from './pages/books/library.component';
 import { BookComponent } from './pages/books/book.component';
-import { GuardsGuard } from './guards/guards.guard';
+import { UpdateBookComponent } from './pages/update-book/update-book.component';
 
 const AppRoutes:Routes = [
 {
@@ -28,7 +28,13 @@ const AppRoutes:Routes = [
     {
         path:':id',
         component: BookComponent
-    }, {
+    },
+    {
+        path:'update/:id',
+        component:UpdateBookComponent
+    },
+
+    {
         path:'',
         component: MainComponent,
         

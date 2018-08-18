@@ -105,5 +105,21 @@ export class BooksService {
     })
   }
 
+  updateBookInfo(id: string, info:any) {
+    let bookU = this.fire.collection('users').doc(this.user.id).collection('books').doc(id);
+    return new Promise ((resolve,reject) => {
+      bookU.update({
+        'title':info.title,
+        'author': info.author,
+        'publisher': info.publisher
+      }).then(
+        (ok)=> { 
+          this.snack.open('Pages updated','close',{duration:1000});
+          resolve(true);
+        } 
+      )
+    })
+  }
+
 
 }
