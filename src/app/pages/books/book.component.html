@@ -2,7 +2,7 @@
 
         <div class="book color" *ngIf="book">
                 <h3 style="text-align: center">
-                        {{book.title}}
+                        {{book.title | title}} 
                 </h3>
                 <div class="content">
                         <p>Author : {{book.author}}</p>

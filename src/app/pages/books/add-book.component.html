@@ -3,7 +3,7 @@
     <div class="title">
       <h2>Add book</h2>
     </div>
-    <mat-card-content>
+    <mat-card-content style="text-align: center;">
       <form [formGroup]="booksForm" (ngSubmit)="guardar()" novalidate>
         <mat-form-field class="complete">
           <input formControlName="title" matInput placeholder="Title" value="" class="complete">

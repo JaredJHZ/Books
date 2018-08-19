@@ -6,7 +6,7 @@
       <mat-card 
       class="inside">
         <div style="text-align: center; margin-bottom: 1px;">
-          {{book.title}}
+         <h3 style="color: #FFD740; margin-top: 0;">{{book.title | title}}</h3> 
         </div>
         <mat-card-content style="text-align: center; height: 330px;" >
           <img *ngIf="book.image" [src]="book.image" alt="" class="img">

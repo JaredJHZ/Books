@@ -1,7 +1,9 @@
 <div class="prueba" style="overflow-x:hidden ">
       <mat-card style="padding-top: 0" class="form">
         <mat-card-content  style="text-align: center">
-          <h3 style="margin-top: 2px; color: #f57f17;">Update book</h3>
+          <div class="title">
+            <h2>Update {{book.title}}</h2>
+          </div>
             <form [formGroup]="booksForm" (ngSubmit)="update()" novalidate>
               <mat-form-field class="complete">
                 <input formControlName="title" matInput placeholder="Title" value="" class="complete">

@@ -13,6 +13,7 @@ import {ChartsModule } from 'ng2-charts';
 import {SweetAlert2Module} from '@toverux/ngx-sweetalert2';
 import { UpdateProgressComponent } from '../books/update-progress/update-progress.component';
 import { UpdateFileService } from '../../services/update-file.service';
+import { TitlePipe } from '../../pipes/title.pipe';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { UpdateFileService } from '../../services/update-file.service';
     
   ],
   exports:[HomeComponent,MaterialModule],
-  declarations: [HomeComponent, AddBookComponent, LibraryComponent,KeysPipe, BookComponent, UpdateProgressComponent],
+  declarations: [HomeComponent, AddBookComponent, LibraryComponent,KeysPipe, BookComponent, UpdateProgressComponent,TitlePipe],
   entryComponents:[UpdateProgressComponent],
   providers:[SidebarService,KeysPipe,UpdateFileService]
 })
