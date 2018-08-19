@@ -1,9 +1,7 @@
 <div class="prueba" style="overflow-x:hidden ">
       <mat-card style="padding-top: 0" class="form">
-        <mat-card-title>
-          <h3 style="margin: 0">Update book</h3>
-        </mat-card-title>
         <mat-card-content  style="text-align: center">
+          <h3 style="margin-top: 2px; color: #f57f17;">Update book</h3>
             <form [formGroup]="booksForm" (ngSubmit)="update()" novalidate>
               <mat-form-field class="complete">
                 <input formControlName="title" matInput placeholder="Title" value="" class="complete">
@@ -23,7 +21,7 @@
 
               <br>
               <div *ngIf="book">
-                  <img [src]="book.image" *ngIf="book.image" class="img" alt="">
+                  <img [src]="book.image" *ngIf="book.image" style="height: 100px;" alt="">
 
               </div>
               <br>

@@ -10,10 +10,10 @@
                         <p style="padding: 2.2px;">You've already read {{book.pagesR}} of {{book.pages}} pages</p>
                         <button
                         style="margin-bottom: 3px"
-                        (click)="updateInfo()"
+                        (click)="update()"
                         class="buttons" mat-raised-button color="accent"
                         >
-                        Update Book Info
+                        Add pages read
                         </button>
                 </div>
         </div>
@@ -32,7 +32,7 @@
         </mat-card>
                             
         <button
-        (click)="update()"
+        (click)="updateInfo()"
         style="margin: 1%;" type="button" mat-mini-fab color='primary' class="update">
         <i class="material-icons">
                         create

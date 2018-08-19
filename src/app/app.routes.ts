@@ -6,7 +6,7 @@ import { UserLoginGuard } from './guards/user-login.guard';
 import { AddBookComponent } from './pages/books/add-book.component';
 import { LibraryComponent } from './pages/books/library.component';
 import { BookComponent } from './pages/books/book.component';
-import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { UpdateBookComponent } from './pages/home/update-book.component';
 
 const AppRoutes:Routes = [
 {

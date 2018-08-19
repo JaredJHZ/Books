@@ -18,14 +18,14 @@
 
 .card-content{
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        min-width: 200px;
         margin-left:20px;
         z-index: 5;
-        height: 100%;
+        min-height: 400px;
         overflow:hidden;
         max-width: 500px;
+        min-width: 280px;
         background: #707070;
-        max-height: 470px;
+        max-height: 770px;
 }
 
 .card-content:hover {
@@ -38,7 +38,9 @@
   }
 
 .buttons {
-    margin:1.5%;
+    margin-top:1.5%;
+    margin-bottom: 1.5%;
+    margin-right: 5px;
 }
 
 .inside{

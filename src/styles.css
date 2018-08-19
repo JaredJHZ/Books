@@ -1,4 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
 
@@ -30,7 +30,10 @@ html, body {
 
 .img {
     min-width: 40%;
-    max-width: 50%;
-    min-height: 100px;
-    max-height: 400px;
+    max-width: 50%; 
+    height: 199px;
+}
+
+.inside {
+    height: 100% !important;
 }

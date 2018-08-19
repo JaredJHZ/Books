@@ -1,21 +1,21 @@
-<h3 style="text-align: center; color: white;">{{user.name}} Library</h3>
 <div class="content" style="overflow-y: hidden;">
   <div class="card">
     <div 
     (click)="goTo(book.id)"
     class="card-content pointer" fxLayout="column" fxFlex="30" *ngFor="let book of books | async">
-
       <mat-card 
       class="inside">
-        <mat-card-title>
+        <div style="text-align: center; margin-bottom: 1px;">
           {{book.title}}
-        </mat-card-title>
-        <mat-card-content style="text-align: center" >
+        </div>
+        <mat-card-content style="text-align: center; height: 330px;" >
           <img *ngIf="book.image" [src]="book.image" alt="" class="img">
             <br>
             {{book.author}}
 
-            <h5 style="color:black">Progress:<br><small>{{book.pagesR}}/{{book.pages}}</small></h5>
+            <h3 style="color:#F57F17">Actual page:</h3>
+            <h3 *ngIf="book.pagesR < book.pages">{{book.pagesR}}</h3>
+            <h3 *ngIf="book.pagesR>=books.pages">Finished</h3>
             <button
             (click)="goTo(book.id)"
             class="buttons" mat-raised-button color="primary">

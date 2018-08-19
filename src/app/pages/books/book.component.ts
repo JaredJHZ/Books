@@ -3,7 +3,7 @@ import { BooksService } from '../../services/books.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatDialogConfig, MatSnackBar} from '@angular/material';
 import { UpdateProgressComponent } from './update-progress/update-progress.component';
-import { BaseChartDirective } from '../../../../node_modules/ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',

@@ -22,8 +22,8 @@ import { AngularFireModule } from 'angularfire2';
 import {firebase} from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { UsernamePipe } from './pipes/username.pipe';
-import { AngularFirestore } from '../../node_modules/angularfire2/firestore';
-import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { UpdateBookComponent } from './pages/home/update-book.component';
 
 
 

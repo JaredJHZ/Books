@@ -3,7 +3,7 @@ import { BooksService } from '../../services/books.service';
 import { Router } from '@angular/router';
 import { Book } from '../../interfaces/book.interface';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { UserService } from '../../services/user.service';
 
 @Component({
