@@ -60,22 +60,42 @@ public chart: BaseChartDirective;
     let dialog = this.dialog.open(UpdateProgressComponent,dialogConfig);
     dialog.afterClosed().subscribe(
       (pages)=> {
-        let nPages = pages + this.book.pagesR;
+        console.log(pages);
+        if(pages.pages > 1) {
+          var nPages = pages.pages + this.book.pagesR;
+        }else if (pages.actualP > 0 ){
+          var nActual = pages.actualP;
+        }
         //si se cancela
-        if( pages === undefined || nPages > this.book.pages || pages < 0) 
+        if( pages.pages === undefined && pages.actualPage === undefined || nPages > this.book.pages && pages.actualPage === undefined || pages.pages < 0 && pages.actualPage === undefined) 
         {
           return this.snack.open('Numéro imposible', 'close', {duration:1000});
         }
-        this._bookService.updateBook(this.book.id, nPages).then(
-          (ok) => {
-            if(ok) {
-              this.book.pagesR = nPages; 
-              this.doughnutChartData[0] = this.percentBook(this.book.pages,this.book.pagesR);
-              this.chart.ngOnChanges({});
-              
+
+        if (nPages > 1) {
+          this._bookService.updateBook(this.book.id, nPages).then(
+            (ok) => {
+
+                this.book.pagesR = nPages; 
+                this.doughnutChartData[0] = this.percentBook(this.book.pages,this.book.pagesR);
+                this.chart.ngOnChanges({});
+                
+              }
+              );
             }
-          }
-        )
+            else{
+              this._bookService.updateBook(this.book.id, nActual).then(
+                (ok) => {
+                  if(ok) {
+                    this.book.pagesR = nActual;
+                    this.doughnutChartData[0] = this.percentBook(this.book.pages,this.book.pagesR);
+                    this.chart.ngOnChanges({});
+                    
+              }
+            }
+          )
+        }
+      
       }
     )
   }

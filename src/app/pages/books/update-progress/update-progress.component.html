@@ -1,8 +1,22 @@
 
     <li>
+      <br>
       <mat-form-field>
         <input matInput type="number" [(ngModel)]="pages" placeholder="Pages read">
       </mat-form-field>
+    </li>
+    <button
+    (click)="change()"
+    mat-button color="warn"
+    style="display:block; text-align: center;"
+    >
+      Or Actual Page
+    </button>
+    <li *ngIf="view">
+      <br>
+      <mat-form-field>
+          <input matInput type="number" [(ngModel)]="actualPage" placeholder="Actual Page">
+        </mat-form-field>
     </li>
     <li>
       <button mat-raised-button (click)="guardar()">Pages readed</button>

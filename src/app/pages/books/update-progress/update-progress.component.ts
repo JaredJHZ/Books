@@ -9,9 +9,12 @@ import {   MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class UpdateProgressComponent implements OnInit {
 
   pages:number;
+  actualPage:number;
+  view:boolean = false;
 
   constructor(public dialogRef: MatDialogRef<UpdateProgressComponent>, @Inject(MAT_DIALOG_DATA) public data:any ) {
     this.pages = 0;
+    
    }
 
   ngOnInit() {
@@ -19,11 +22,15 @@ export class UpdateProgressComponent implements OnInit {
   }
 
   guardar() {
-    this.dialogRef.close(this.pages);
+    this.dialogRef.close({pages:this.pages,actualP:this.actualPage});
   }
 
   cancelar() {
     this.dialogRef.close(0);
+  }
+
+  change() {
+    this.view = ! this.view;
   }
 
 }
